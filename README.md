@@ -1,4 +1,4 @@
 SeeVar
 ======
 
-see the variable of the object in the heap
+See the variable of the object in the java heap
