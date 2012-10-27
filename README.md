@@ -19,7 +19,7 @@ verbose : wheather need output the detail info or not (true or false) <br />
 pid : the process id which need to be attached <br />
 
 # Output(without verbose)
-java -cp .:$JAVA_HOME/lib/sa-jdi.jar FetchObj Run2 foo int true 26899 <br />
+java -cp .:$JAVA_HOME/lib/sa-jdi.jar FetchObj Run2 foo int false 26899 <br />
 Run2 @ 0xe96ec530 (object size = 24) <br />
 foo:20 <br />
 Run2 @ 0xe96ec548 (object size = 24) <br />
