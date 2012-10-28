@@ -27,10 +27,15 @@ public class PrimitiveVisitor implements Runnable,Constants
 			ObjectHeap heap=VM.getVM().getObjectHeap();
 			InstanceKlass klass=SystemDictionaryHelper.findInstanceKlass(className);
 			final Field field=getField(klass);
-			
+						
 			heap.iterateObjectsOfKlass(new DefaultHeapVisitor(){
 				public boolean doObj(Oop obj/*className instance*/)
 				{
+					if(verbose)
+                        		{
+                                		obj.print();
+                        		}
+					
 					countHolder[0]++;
 					Object r=getFieldValue(field,obj);
 					System.out.println(className+" @ "+obj.getHandle()+" (object size = "+obj.getObjectSize()+")");

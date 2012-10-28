@@ -30,9 +30,13 @@ public class PrimitiveArrayVisitor implements Runnable,Constants
 			{
 				countHolder[0]++;
 				System.out.println(klass.getName().asString()+" @ "+ obj.getHandle()+" (object size = "+obj.getObjectSize()+")");
-				if(!verbose)
+				if(verbose)
+                        	{
+                                	obj.print();
+                        	}
+				else
 				{
-					System.out.print(fieldName+":");
+					System.out.print(fieldName+":[");
 				}
 				
 				//TypeArray
@@ -47,7 +51,8 @@ public class PrimitiveArrayVisitor implements Runnable,Constants
 						}
 						else
 						{
-							System.out.print(v);
+							System.out.print(v+" ");
+								
 						}
 					}
 					
@@ -60,7 +65,7 @@ public class PrimitiveArrayVisitor implements Runnable,Constants
 						}
 						else
 						{
-							System.out.print(v);
+							System.out.print(v+" ");
 						}
 					}
 
@@ -73,7 +78,7 @@ public class PrimitiveArrayVisitor implements Runnable,Constants
 						}
 						else
 						{
-							System.out.print(v);
+							System.out.print(v+" ");
 						}
 					}
 					public void doShort(ShortField field, boolean isVMField)
@@ -85,7 +90,7 @@ public class PrimitiveArrayVisitor implements Runnable,Constants
 						}
 						else
 						{
-							System.out.print(v);
+							System.out.print(v+" ");
 						}
 					}
 
@@ -98,7 +103,7 @@ public class PrimitiveArrayVisitor implements Runnable,Constants
 						}
 						else
 						{
-							System.out.print(v);
+							System.out.print(v+" ");
 						}
 					}
 					
@@ -111,7 +116,7 @@ public class PrimitiveArrayVisitor implements Runnable,Constants
 						}
 						else
 						{
-							System.out.print(v);
+							System.out.print(v+" ");
 						}
 					}
 					
@@ -124,7 +129,7 @@ public class PrimitiveArrayVisitor implements Runnable,Constants
 						}
 						else
 						{
-							System.out.print(v);
+							System.out.print(v+" ");
 						}
 					}
 					
@@ -137,7 +142,7 @@ public class PrimitiveArrayVisitor implements Runnable,Constants
 						}
 						else
 						{
-							System.out.print(v);
+							System.out.print(v+" ");
 						}
 					}
 					
@@ -161,6 +166,11 @@ public class PrimitiveArrayVisitor implements Runnable,Constants
 						}
 					}
 				},true);
+				
+				if(!verbose)
+                                {
+                                        System.out.print("]");
+                                }
 				System.out.println();
 				return false;
 			}

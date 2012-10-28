@@ -31,7 +31,11 @@ public class StringVisitor implements Runnable,Constants
 			{
 				countHolder[0]++;
 				System.out.println(klass.getName().asString()+" @ "+ obj.getHandle()+" (object size = "+obj.getObjectSize()+")");
-				if(!verbose)
+				if(verbose)
+                        	{
+                                	obj.print();
+                        	}
+				else
 				{
 					System.out.print(fieldName+":");
 				}
