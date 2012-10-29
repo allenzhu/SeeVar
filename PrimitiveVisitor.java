@@ -23,9 +23,14 @@ public class PrimitiveVisitor implements Runnable,Constants
 		try
 		{
 			final int[] countHolder=new int[1];
-			
+
+			final InstanceKlass klass=SystemDictionaryHelper.findInstanceKlass(className);
+			if(null==klass)
+			{
+				System.out.println(className+" klass is null");
+				return ;
+			}
 			ObjectHeap heap=VM.getVM().getObjectHeap();
-			InstanceKlass klass=SystemDictionaryHelper.findInstanceKlass(className);
 			final Field field=getField(klass);
 						
 			heap.iterateObjectsOfKlass(new DefaultHeapVisitor(){

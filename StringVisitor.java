@@ -20,9 +20,13 @@ public class StringVisitor implements Runnable,Constants
 	public void run()
 	{
 		final int[] countHolder=new int[1];
-		
-		ObjectHeap heap=VM.getVM().getObjectHeap();
 		final InstanceKlass klass=SystemDictionaryHelper.findInstanceKlass(className);
+                if(null==klass)
+		{
+			System.out.println(className+" klass is null");
+			return ;
+		}
+		ObjectHeap heap=VM.getVM().getObjectHeap();
 		String signiture="Ljava/lang/String;";
 		final OopField field=(OopField)klass.findField(this.fieldName,signiture);
 		

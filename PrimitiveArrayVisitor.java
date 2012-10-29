@@ -21,8 +21,13 @@ public class PrimitiveArrayVisitor implements Runnable,Constants
 	{
 		final int[] countHolder=new int[1];
 		
-		ObjectHeap heap=VM.getVM().getObjectHeap();
 		final InstanceKlass klass=SystemDictionaryHelper.findInstanceKlass(className);
+                if(null==klass)
+                {
+                	System.out.println(className+" klass is null");
+                	return ;
+                }
+		ObjectHeap heap=VM.getVM().getObjectHeap();
 		final OopField field=getField(klass);
 		
 		heap.iterateObjectsOfKlass(new DefaultHeapVisitor(){
